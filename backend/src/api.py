@@ -161,6 +161,17 @@ def create_app(test_config=None):
             "error": 401,
             "message": "unauthorized"
         }), 401
+        
+    '''
+    @Done implement error handler for 403 forbidden
+    '''
+    @app.errorhandler(403)
+    def unauthorized(error):
+        return jsonify({
+            "success": False, 
+            "error": 403,
+            "message": "forbidden"
+        }), 403
     
     return app
 
