@@ -150,6 +150,18 @@ def create_app(test_config=None):
     @TODO implement error handler for AuthError
         error handler should conform to general task above 
     '''
+    
+    '''
+    @Done implement error handler for 401 unauthorized
+    '''
+    @app.errorhandler(401)
+    def unauthorized(error):
+        return jsonify({
+            "success": False, 
+            "error": 401,
+            "message": "unauthorized"
+        }), 401
+    
     return app
 
 if __name__ == '__main__':
