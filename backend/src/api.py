@@ -134,7 +134,16 @@ def create_app(test_config=None):
             "message": "bad request"
         }),400
 
-
+    '''
+    @Done implement error handler for 405
+    '''
+    @app.errorhandler(405)
+    def not_allowed(error):
+        return jsonify({
+            "success":False,
+            "error":405,
+            "message":"method not allowed"
+        }),405
 
     '''
     @TODO implement error handler for AuthError
