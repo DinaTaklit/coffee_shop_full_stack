@@ -19,7 +19,7 @@ def create_app(test_config=None):
     !! NOTE THIS WILL DROP ALL RECORDS AND START YOUR DB FROM SCRATCH
     !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
     '''
-    # db_drop_and_create_all()
+    #db_drop_and_create_all()
 
     ## ROUTES
     '''
@@ -30,7 +30,16 @@ def create_app(test_config=None):
         returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
             or appropriate status code indicating reason for failure
     '''
-
+    @app.route('/drinks')
+    def get_drinks(): 
+        data = Drink.query.all()  
+        drinks = list(map(Drink.short, data))
+        if drinks is None or len(drinks)==0: 
+            abort(404)                 
+        return jsonify({
+            'success': True,
+            'questions':drinks 
+        }) 
 
     '''
     @TODO implement endpoint
