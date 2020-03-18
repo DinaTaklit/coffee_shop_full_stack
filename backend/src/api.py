@@ -23,7 +23,7 @@ def create_app(test_config=None):
 
     ## ROUTES
     '''
-    @TODO implement endpoint
+    @Done implement endpoint
         GET /drinks
             it should be a public endpoint
             it should contain only the drink.short() data representation
@@ -100,7 +100,7 @@ def create_app(test_config=None):
                         }), 422
 
     '''
-    @TODO implement error handlers using the @app.errorhandler(error) decorator
+    @Done implement error handlers using the @app.errorhandler(error) decorator
         each error handler should return (with approprate messages):
                 jsonify({
                         "success": False, 
@@ -111,7 +111,19 @@ def create_app(test_config=None):
     '''
 
     '''
-    @TODO implement error handler for 404
+    @Done implement error handler for 404
+        error handler should conform to general task above 
+    '''
+    @app.errorhandler(404)
+    def not_found(error):
+        return jsonify({
+            "success":False,
+            "error":404,
+            "message":"resource not found"
+        }),404
+        
+    '''
+    @Done implement error handler for 400
         error handler should conform to general task above 
     '''
     @app.errorhandler(400)
