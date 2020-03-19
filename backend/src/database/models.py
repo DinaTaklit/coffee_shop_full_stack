@@ -41,11 +41,7 @@ class Drink(db.Model):
     # the ingredients blob - this stores a lazy json blob
     # the required datatype is [{'color': string, 'name':string, 'parts':number}]
     recipe =  Column(String(180), nullable=False)
-
-    def __init__(self, title, recipe):
-        self.title = title
-        self.reciepe = recipe
-
+    
     '''
     short()
         short form representation of the Drink model
