@@ -27,7 +27,8 @@ export class AuthService {
     link += 'audience=' + this.audience + '&';
     link += 'response_type=token&';
     link += 'client_id=' + this.clientId + '&';
-    link += 'redirect_uri=' + this.callbackURL + callbackPath;
+    link += 'redirect_uri=' + this.callbackURL;
+    //link += 'redirect_uri=' + this.callbackURL + callbackPath;
     return link;
   }
 
