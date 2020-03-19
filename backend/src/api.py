@@ -52,13 +52,13 @@ def create_app(test_config=None):
     @app.route('/drinks-detail')
     @requires_auth(permission='get:drinks-detail')#require the 'get:drinks-detail' permission
     def get_drinks_detail(payload):
-        drink_query = Drink.query.all()  
-        drink = list(map(Drink.long, drink_query))
-        if drink is None or len(drink)==0: 
+        drinks_query = Drink.query.all()  
+        drinks = list(map(Drink.long, drinks_query))
+        if drinks is None or len(drinks)==0: 
             abort(404)                 
         return jsonify({
             'success': True,
-            'drinks':drink 
+            'drinks':drinks 
         }) 
 
 
@@ -71,6 +71,8 @@ def create_app(test_config=None):
         returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the newly created drink
             or appropriate status code indicating reason for failure
     '''
+
+
 
 
     '''
