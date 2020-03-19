@@ -51,9 +51,7 @@ def create_app(test_config=None):
     ''' 
     @app.route('/drinks-detail')
     @requires_auth(permission='get:drinks-detail')#require the 'get:drinks-detail' permission
-    def get_drinks_detail():
-        print("\nCall requires_auth\n")
-        print("\nafter auth\n")
+    def get_drinks_detail(payload):
         drink_query = Drink.query.all()  
         drink = list(map(Drink.long, drink_query))
         if drink is None or len(drink)==0: 
@@ -173,6 +171,7 @@ def create_app(test_config=None):
             "message": error.error['description']
         }), error.status_code
         
+    return app
 
 if __name__ == '__main__':
     app = create_app()
