@@ -42,13 +42,27 @@ def create_app(test_config=None):
         }) 
 
     '''
-    @TODO implement endpoint
+    @Done implement endpoint
         GET /drinks-detail
             it should require the 'get:drinks-detail' permission
             it should contain the drink.long() data representation
         returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
             or appropriate status code indicating reason for failure
-    '''
+    ''' 
+    @app.route('/drinks-detail')
+    @requires_auth(permission='get:drinks-detail')#require the 'get:drinks-detail' permission
+    def get_drinks_detail():
+        print("\nCall requires_auth\n")
+        print("\nafter auth\n")
+        drink_query = Drink.query.all()  
+        drink = list(map(Drink.long, drink_query))
+        if drink is None or len(drink)==0: 
+            abort(404)                 
+        return jsonify({
+            'success': True,
+            'drinks':drink 
+        }) 
+
 
     '''
     @TODO implement endpoint
