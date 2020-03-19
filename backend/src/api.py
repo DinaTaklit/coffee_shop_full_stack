@@ -38,7 +38,7 @@ def create_app(test_config=None):
             abort(404)                 
         return jsonify({
             'success': True,
-            'questions':drinks 
+            'drinks':drinks 
         }) 
 
     '''
@@ -49,7 +49,6 @@ def create_app(test_config=None):
         returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
             or appropriate status code indicating reason for failure
     '''
-
 
     '''
     @TODO implement endpoint
@@ -147,33 +146,19 @@ def create_app(test_config=None):
 
 
     '''
-    @TODO implement error handler for AuthError
+    @Done implement error handler for AuthError
         error handler should conform to general task above 
     '''
     
-    '''
-    @Done implement error handler for 401 unauthorized
-    '''
-    @app.errorhandler(401)
-    def unauthorized(error):
+    @app.errorhandler(AuthError)
+    def auth_error(error):
         return jsonify({
             "success": False, 
-            "error": 401,
-            "message": "unauthorized"
-        }), 401
+            "error": error.status_code,
+            "code":error.error['code'],
+            "message": error.error['description']
+        }), error.status_code
         
-    '''
-    @Done implement error handler for 403 forbidden
-    '''
-    @app.errorhandler(403)
-    def unauthorized(error):
-        return jsonify({
-            "success": False, 
-            "error": 403,
-            "message": "forbidden"
-        }), 403
-    
-    return app
 
 if __name__ == '__main__':
     app = create_app()
