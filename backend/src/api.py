@@ -110,7 +110,7 @@ def create_app(test_config=None):
             or appropriate status code indicating reason for failure
     '''
 
-    @app.route('/drinks/<int:id>', methods=['PATCH'])
+    @app.route('/drinks/<int:drink_id>', methods=['PATCH'])
     @requires_auth('patch:drinks')
     def update_drink(payload, drink_id):
         try: 
