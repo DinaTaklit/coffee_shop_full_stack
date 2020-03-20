@@ -153,7 +153,26 @@ def create_app(test_config=None):
         returns status code 200 and json {"success": True, "delete": id} where id is the id of the deleted record
             or appropriate status code indicating reason for failure
     '''
+    
+    @app.route('/drinks/<drink_id>', methods=['DELETE'])
+    @requires_auth('delete:drinks')
+    def delete_drink(payload, drink_id):
+        
+        selected_drink = Drink.query.filter(Drink.id == drink_id).one_or_none() # get the drink to delete
 
+        if selected_drink is None:
+            abort(404)
+        try:
+            selected_drink.delete() # delete the item
+            
+            return jsonify({
+            "success": True, 
+            "delete": drink_id
+            })
+            
+        except:
+            abort(422)
+        
 
     ## Error Handling
     '''
