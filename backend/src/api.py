@@ -110,7 +110,37 @@ def create_app(test_config=None):
             or appropriate status code indicating reason for failure
     '''
 
+    @app.route('/drinks/<int:id>', methods=['PATCH'])
+    @requires_auth('patch:drinks')
+    def update_drink(payload, drink_id):
+        try: 
+            drink = Drink.query.filter(Drink.id == drink_id).one_or_none() # get the element with given id
+            if drink is None: 
+                abort(404)
+            body = request.get_json() # get the body
+            
+            if body is None: 
+                abort(404) 
+                
+            updated_title = body.get('title', None)
+            updated_recipe = body.get('recipe', None)   
+                        
+            if updated_title is not None:
+                drink.title = updated_title
+            
+            if updated_recipe != None: 
+                if type(updated_recipe) is not list: # if the recipe is not a list transform it as a list
+                    updated_recipe = [updated_recipe] 
+                     
+                drink.recipe = json.dumps(updated_recipe) #update drink.recipe with given value
 
+            drink.update() #update the record
+            return jsonify({
+                'success':True,
+                'drinks':[drink.long()]
+            })
+        except:
+            abort(422)
             
 
     '''
