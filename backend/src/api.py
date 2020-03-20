@@ -75,7 +75,6 @@ def create_app(test_config=None):
     @requires_auth('post:drinks')
     def post_drink(payload):
         body = request.get_json()
-        print("\nthe body is => {}\n".format(body))
         if body is None: 
             abort(404)
         title = body.get('title', None)
@@ -84,20 +83,14 @@ def create_app(test_config=None):
         duplicate = Drink.query.filter(Drink.title == title).one_or_none() # verify id there is no duplicate
         if duplicate != None:
             abort(400)
-        
-        print("\ntype(recipe) => {}\n".format(type(recipe)))
         if type(recipe) is not list: # if the reciepe has not been inputed as a list 
-            recipe = [recipe]
-            
+            recipe = [recipe]    
         try:
-            print("\n Create new drink \n")
             new_drink = Drink(title=title, recipe=json.dumps(recipe))
-          
-            print("\n The drink is =>{}\n".format(new_drink))
             new_drink.insert()                                                
             return jsonify({
                 'success': True,
-                'drinks': new_drink.long()
+                'drinks': [new_drink.long()]
             })
         except Exception as error: 
             abort(422)
@@ -117,6 +110,8 @@ def create_app(test_config=None):
             or appropriate status code indicating reason for failure
     '''
 
+
+            
 
     '''
     @TODO implement endpoint
