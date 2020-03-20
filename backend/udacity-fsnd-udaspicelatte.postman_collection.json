@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e8ad44ee-7536-4901-913c-46e718d56d9f",
+		"_postman_id": "760b4c60-e70c-43f5-9cec-71c4c3153df2",
 		"name": "udacity-fsnd-udaspicelatte",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -170,7 +170,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "barista",
@@ -379,7 +380,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "manager",
@@ -406,6 +408,21 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJqbEZSakU1UmpVd01EaEJNa015TlVWQk5UbEVPRE5HUWpnMU1rSTVOekJHUlVKRE56VkZSUSJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwcGxpY2F0aW9uLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTcxMGZmNjUyZWI5ZDBkMTg2MGM5ZTMiLCJhdWQiOiJjb2ZmZWUtc2hvcC1hcHAiLCJpYXQiOjE1ODQ3NDM0ODAsImV4cCI6MTU4NDgyOTg4MCwiYXpwIjoiN3VPMDVmNXdyODk1NFdlcjBNakx6NFlhYmprQzM2VTUiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.G_IQ1MxgW1fWq3wWD9_Na2O-tip98FK8fl2NzlFO8YG3v0SFi6OqEiNI1tiaJe_1Re7nrYGfNJ8aaOKYr7xG341NWPaF-wM4g3cJ8Rs2qgplV78sNaQ6YWdgv7i8fL68mHgyjorx8BxbuXAaZ0dims4EiyHvK0qtEGmpGw5UF1149jr3ozcP3DqaRpOjcNRn-NyLUo0IgixzxvddThrgPsO8IQP9Bt4IxosFo7M2XLYAB7LdL6tNEpoyj5GHOuTqBemoYw_7Ngwq4I3wPbWpQjom-uDM0BGRfgzQ80QCiXFJ6-0OaZepXw7tBtnpjTV3PRBOZc_wiQi9AAonh7F4uw",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -442,6 +459,21 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJqbEZSakU1UmpVd01EaEJNa015TlVWQk5UbEVPRE5HUWpnMU1rSTVOekJHUlVKRE56VkZSUSJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwcGxpY2F0aW9uLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTcxMGZmNjUyZWI5ZDBkMTg2MGM5ZTMiLCJhdWQiOiJjb2ZmZWUtc2hvcC1hcHAiLCJpYXQiOjE1ODQ3NDM0ODAsImV4cCI6MTU4NDgyOTg4MCwiYXpwIjoiN3VPMDVmNXdyODk1NFdlcjBNakx6NFlhYmprQzM2VTUiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.G_IQ1MxgW1fWq3wWD9_Na2O-tip98FK8fl2NzlFO8YG3v0SFi6OqEiNI1tiaJe_1Re7nrYGfNJ8aaOKYr7xG341NWPaF-wM4g3cJ8Rs2qgplV78sNaQ6YWdgv7i8fL68mHgyjorx8BxbuXAaZ0dims4EiyHvK0qtEGmpGw5UF1149jr3ozcP3DqaRpOjcNRn-NyLUo0IgixzxvddThrgPsO8IQP9Bt4IxosFo7M2XLYAB7LdL6tNEpoyj5GHOuTqBemoYw_7Ngwq4I3wPbWpQjom-uDM0BGRfgzQ80QCiXFJ6-0OaZepXw7tBtnpjTV3PRBOZc_wiQi9AAonh7F4uw",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -473,6 +505,21 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJqbEZSakU1UmpVd01EaEJNa015TlVWQk5UbEVPRE5HUWpnMU1rSTVOekJHUlVKRE56VkZSUSJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwcGxpY2F0aW9uLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTcxMGZmNjUyZWI5ZDBkMTg2MGM5ZTMiLCJhdWQiOiJjb2ZmZWUtc2hvcC1hcHAiLCJpYXQiOjE1ODQ3NDM0ODAsImV4cCI6MTU4NDgyOTg4MCwiYXpwIjoiN3VPMDVmNXdyODk1NFdlcjBNakx6NFlhYmprQzM2VTUiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.G_IQ1MxgW1fWq3wWD9_Na2O-tip98FK8fl2NzlFO8YG3v0SFi6OqEiNI1tiaJe_1Re7nrYGfNJ8aaOKYr7xG341NWPaF-wM4g3cJ8Rs2qgplV78sNaQ6YWdgv7i8fL68mHgyjorx8BxbuXAaZ0dims4EiyHvK0qtEGmpGw5UF1149jr3ozcP3DqaRpOjcNRn-NyLUo0IgixzxvddThrgPsO8IQP9Bt4IxosFo7M2XLYAB7LdL6tNEpoyj5GHOuTqBemoYw_7Ngwq4I3wPbWpQjom-uDM0BGRfgzQ80QCiXFJ6-0OaZepXw7tBtnpjTV3PRBOZc_wiQi9AAonh7F4uw",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -610,7 +657,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -642,5 +690,6 @@
 			"value": "localhost:5000",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
