@@ -137,7 +137,7 @@ def create_app(test_config=None):
                 'success': True,
                 'drinks': [drink.long()]
             })
-        except:
+        except Exception as error:
             abort(422)
     '''
     @TODO implement endpoint
@@ -163,7 +163,7 @@ def create_app(test_config=None):
                 "success": True,
                 "delete": drink_id
             })
-        except:
+        except Exception as error:
             abort(422)
 
     # Error Handling
